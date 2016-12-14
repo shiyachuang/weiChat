@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="renderer" content="webkit">
+	<link rel="stylesheet" type="text/css" href="app.css">
+	<title>应用下载</title>
+	<style type="text/css">
+	.wxtip{background: rgba(0,0,0,0.8); text-align: center; position: fixed; left:0; top: 0; width: 100%; height: 100%; z-index: 998; display: none;}
+	.wxtip-icon{width: 52px; height: 67px; background: url(weixin-tip.png) no-repeat; display: block; position: absolute; right: 20px; top: 20px;}
+	.wxtip-txt{margin-top: 107px; color: #fff; font-size: 16px; line-height: 1.5;}
+	</style>
+</head>
+<body>
+	<div class="info">
+			<div class="ok-btn">
+				<img src="logo.png">
+			</div>
+			<p class="entry-con">感谢您使用菠菜商城</p>
+			<h2 class="entry-hd">希望您购物愉快</h2>
+	</div>
+	
+	<div class="download">
+			<h3 class="entry-hd">立即下载菠菜商城APP</h3>
+			<p class="entry-con">享受免费包邮</p>
+			<div class="download-btn">
+				<a href="http://3.web151521.applinzi.com/android-debug.apk" id="JdownApp"><img src="android-btn.png" alt="安卓版下载"></a>
+
+			</div>
+	</div>
+	<div class="app">
+			<p class="entry-con">下载完成后，安装在本地<br>打开使用即可<br>如有下载困难，请致电：0393-88888888</p>
+		</div>
+	<div class="footer-bg">
+			<p class="entry-con">注：微信用户请在右上角选择“在浏览器中打开”，再选择下载应用</p>
+	</div>
+
+	<div class="wxtip" id="JweixinTip">
+	<span class="wxtip-icon"></span>
+	<p class="wxtip-txt">点击右上角<br/>选择在浏览器中打开</p>
+	</div>
+	<script type="text/javascript">
+	function weixinTip(ele){
+		var ua = navigator.userAgent;
+		var isWeixin = !!/MicroMessenger/i.test(ua);
+		if(isWeixin){
+			ele.onclick=function(e){
+					window.event? window.event.returnValue = false : e.preventDefault();
+					document.getElementById('JweixinTip').style.display='block';
+				}
+				document.getElementById('JweixinTip').onclick=function(){
+					this.style.display='none';
+				}
+			}
+	}
+	var btn1 = document.getElementById('JdownApp');//下载
+		weixinTip(btn1);
+	</script>
+</body>
+</html>
